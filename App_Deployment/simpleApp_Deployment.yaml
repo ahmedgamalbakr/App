@@ -4,17 +4,17 @@ metadata:
   name: app
   namespace: application
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
-      app: myapp
+      app: hello-app
   template:
     metadata:
       labels:
-        app: myapp
+        app: hello-app
     spec:
       containers:
-      - name: myapp-container
+      - name: helloapp-container
         image: ahmedgamal22/simpleapp
         ports:
-        - containerPort: 4000
+        - containerPort: 9090
