@@ -4,6 +4,7 @@ pipeline {
   }
   
   stages {
+
     stage('Build and Push Docker Image') {
       steps {
         
@@ -19,23 +20,24 @@ pipeline {
         }
       }
     }
-    
+    }
+
     stage('CD -- Deploy to EKS') {
       steps {
-        steps{
             dir('./App_Deployment') {
-        script {  
 
+        script {  
+            
          kubectl apply -f app_namespace.yaml
          kubectl apply -f simpleApp_Deployment.yaml
          kubectl apply -f app_Service.yaml
-        }
-            }
+              }
+          }
         }
 
         
       }
     }
   }
-}
-}
+
+
