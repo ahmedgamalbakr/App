@@ -5,7 +5,7 @@ metadata:
   namespace: Myapplication
 spec:
   selector:
-    app: 
+    app: myapp
   ports:
     - name: http
       port: 3000

@@ -9,14 +9,14 @@ pipeline {
       steps {
         
         script {
-          sh "docker build -t ahmedgamal22/simpleApp ."
+          sh "docker build -t ahmedgamal22/simpleapp ."
         }
         
         script {
         withCredentials([usernamePassword(credentialsId: 'dockerhub',usernameVariable: 'DOCKER_USERNAME',passwordVariable: 'DOCKER_PASSWORD')]){
 
           sh "docker login -u ${DOCKER_USERNAME}  -p  ${DOCKER_PASSWORD} "
-          sh "docker push ahmedgamal22/simpleApp"
+          sh "docker push ahmedgamal22/simpleapp"
         }
       }
     }
@@ -27,7 +27,7 @@ pipeline {
             dir('./App_Deployment') {
 
         script {  
-            
+
          kubectl apply -f app_namespace.yaml
          kubectl apply -f simpleApp_Deployment.yaml
          kubectl apply -f app_Service.yaml
