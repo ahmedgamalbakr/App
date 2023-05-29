@@ -28,9 +28,13 @@ pipeline {
 
         script {  
 
+       sh """  
+       
          kubectl apply -f app_namespace.yaml
          kubectl apply -f simpleApp_Deployment.yaml
          kubectl apply -f app_Service.yaml
+        """
+
               }
           }
         }
