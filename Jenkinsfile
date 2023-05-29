@@ -30,6 +30,7 @@ pipeline {
 
        sh """  
        
+         kubectl delete deployment --all -n application
          kubectl apply -f app_namespace.yaml
          kubectl apply -f simpleApp_Deployment.yaml
          kubectl apply -f app_Service.yaml
